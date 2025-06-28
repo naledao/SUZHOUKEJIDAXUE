@@ -1,0 +1,12 @@
+Host: wxxyshall.usts.edu.cn
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+synjones-auth: bearer eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1c2VyIiwiYXVkIjoiYXVkaWVuY2UiLCJzbm8iOiIyNDEzMDQxMDAxIiwibmFtZSI6IuabvuW8uiIsImlkIjoyODI0NywibG9naW5Gcm9tIjoid2VjaGF0LW1wIiwidXVpZCI6IjQ2NWQ1ZmNlNWUxOWRhYmI0MGNiOWE2N2U2NjExZjZlIiwiYWNjb3VudCI6IjI0MTMwNDEwMDEifQ.Z2gBwG3jpxK8DRp9QEL_r9eFPq-SIiWVb8wT1aeT-Sc
+Authorization: Basic Y2hhcmdlOmNoYXJnZV9zZWNyZXQ=
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Origin: https://wxxyshall.usts.edu.cn
+Referer: https://wxxyshall.usts.edu.cn/charge-app/
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: __jsluid_s=5ab98935aebd5446a93c1f726c9dbea7; __jsluid_h=5abd9da7a70f8570be8da4d05fc81342; TGC="third_login:TGT-f51a96e167b8476297e0b808d49b3ce4"
+

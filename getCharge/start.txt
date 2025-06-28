@@ -1,0 +1,11 @@
+docker build -t getcharge .
+
+
+docker run -d \
+  --name getcharge \
+  -v /dockerImages/getCharge/roomInfo.json:/app/roomInfo.json:ro \
+  -v /dockerImages/getCharge/email.json:/app/email.json:ro \
+  -v /dockerImages/getCharge/headers.txt:/app/headers.txt:ro \
+  -v /dockerImages/getCharge/GetDianfei.log:/app/GetDianfei.log \
+  --restart unless-stopped \
+  getcharge

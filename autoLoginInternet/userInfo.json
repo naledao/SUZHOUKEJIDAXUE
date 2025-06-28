@@ -1,0 +1,26 @@
+[
+  {
+    "username": "2413041001@cmcc",
+    "password": "241964Zq!",
+    "wlan_user_ip": "10.160.21.161",
+    "wlan_user_mac": "000000000000",
+    "wlan_ac_ip": "221.178.235.146",
+    "wlan_ac_name": "JSSUZ-MC-CMNET-BRAS-KEDA_ME60X8"
+  },
+    {
+    "username": "20200135220@telecom",
+    "password": "12139X",
+    "wlan_user_ip": "10.160.12.16",
+    "wlan_user_mac": "000000000000",
+    "wlan_ac_ip": "221.178.235.146",
+    "wlan_ac_name": "JSSUZ-MC-CMNET-BRAS-KEDA_ME60X8"
+  },
+    {
+    "username": "2411041016@unicom",
+    "password": "05467X",
+    "wlan_user_ip": "10.160.13.88",
+    "wlan_user_mac": "000000000000",
+    "wlan_ac_ip": "221.178.235.146",
+    "wlan_ac_name": "JSSUZ-MC-CMNET-BRAS-KEDA_ME60X8"
+  }
+]

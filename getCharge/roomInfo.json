@@ -1,0 +1,26 @@
+[
+  {
+    "feeitemid": "409",
+    "type": "IEC",
+    "level": "3",
+    "campus": "2sh",
+    "building": "10058",
+    "room": "11973"
+  },
+  {
+    "feeitemid": "409",
+    "type": "IEC",
+    "level": "3",
+    "campus": "2sh",
+    "building": "10058",
+    "room": "11985"
+  },
+    {
+    "feeitemid": "409",
+    "type": "IEC",
+    "level": "3",
+    "campus": "2sh",
+    "building": "10058",
+    "room": "11939"
+  }
+]
