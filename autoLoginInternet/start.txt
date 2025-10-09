@@ -2,6 +2,7 @@ docker build -t autoLoginInternet .
 
 docker run -d \
   --name autoLoginInternet \
-  -v /dockerImages/getCharge/roomInfo.json:/app/userInfo.json:ro \
+  -v $(pwd)/config.json:/app/config.json:ro \
+  -v $(pwd)/login.log:/app/login.log \
   --restart unless-stopped \
   autoLoginInternet:latest

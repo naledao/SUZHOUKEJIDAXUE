@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制脚本
 COPY login.py .
 
-COPY userInfo.json .
+COPY config.json .
 
 # 容器启动时执行
 CMD ["python", "login.py"]
