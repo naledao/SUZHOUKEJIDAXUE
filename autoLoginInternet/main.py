@@ -6,6 +6,7 @@ import logging
 import websocket
 from typing import Dict, Any, Optional
 
+# "serverIp2": "14.103.202.40"
 # Log configuration: append mode, UTF-8
 logging.basicConfig(
     filename='login.log',
