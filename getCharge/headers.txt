@@ -1,7 +1,7 @@
 Host: wxxyshall.usts.edu.cn
 Connection: keep-alive
 Accept: application/json, text/plain, */*
-synjones-auth: bearer eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1c2VyIiwiYXVkIjoiYXVkaWVuY2UiLCJzbm8iOiIyNDEzMDQxMDAxIiwibmFtZSI6IuabvuW8uiIsImlkIjoyODI0NywibG9naW5Gcm9tIjoid2VjaGF0LW1wIiwidXVpZCI6IjQ2NWQ1ZmNlNWUxOWRhYmI0MGNiOWE2N2U2NjExZjZlIiwiYWNjb3VudCI6IjI0MTMwNDEwMDEifQ.Z2gBwG3jpxK8DRp9QEL_r9eFPq-SIiWVb8wT1aeT-Sc
+synjones-auth: bearer eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1c2VyIiwiYXVkIjoiYXVkaWVuY2UiLCJzbm8iOiIyNDEzMDQxMDAxIiwibmFtZSI6IuabvuW8uiIsImlkIjoyODI0NywibG9naW5Gcm9tIjoid2VjaGF0LW1wIiwidXVpZCI6IjUxN2YzMTFiMGM2NjQwNzY5YTEwOTc5OTUyYzMxNDU0IiwiYWNjb3VudCI6IjI0MTMwNDEwMDEifQ.7Yymmhyyk5TRHSZrB3jU3nglPHeEDMuO-ERSOlp17v0
 Authorization: Basic Y2hhcmdlOmNoYXJnZV9zZWNyZXQ=
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
 Content-Type: application/x-www-form-urlencoded
