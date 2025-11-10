@@ -1,53 +1,41 @@
-# server.py
+# server.py  —— gRPC + Protobuf 版本（不要再用 dubbo-python）
 import json
-import dubbo
-from dubbo.configs import ServiceConfig
-from dubbo.proxy.handlers import RpcMethodHandler, RpcServiceHandler
+import grpc
+from concurrent import futures
 
-# 复用你的函数
+import dianfei_pb2
+import dianfei_pb2_grpc
+
+# 复用你的函数：入参 JSON 字符串，返回 float
 from dianfei_core import query_current_electricity
 
-SERVICE_NAME = "DianFeiService"   # 自定义服务名
-HOST = "0.0.0.0"
-PORT = 50051
+class DianFeiServiceImpl(dianfei_pb2_grpc.DianFeiServiceServicer):
+    def QueryCurrentElectricity(self, request, context):
+        # 把 proto 入参组装为你原函数需要的 JSON 字符串
+        payload = {
+            "campus": request.campus,
+            "building": request.building,
+            "room": request.room,
+            "feeitemid": request.feeitemid,
+            "type": request.type,
+            "level": request.level,
+        }
+        payload_json = json.dumps(payload, ensure_ascii=False)
 
-def _req_deser(b: bytes) -> str:
-    # 客户端传来的请求：UTF-8 JSON 字符串
-    print(b.decode("utf-8"))
-    return b.decode("utf-8")
+        # 调你的业务，拿 float
+        val = float(query_current_electricity(payload_json))
 
-def _resp_ser(obj) -> bytes:
-    # 返回 JSON：{"value": float}
-    return json.dumps(obj, ensure_ascii=False).encode("utf-8")
+        # 返回 Protobuf 消息，而不是 JSON 字节
+        return dianfei_pb2.QueryReply(value=val)
 
-def rpc_query(payload_json: str):
-    """
-    Dubbo 暴露的方法：入参为 JSON 字符串，返回 {"value": float}
-    失败抛异常，Dubbo 会在客户端看到错误
-    """
-    val = query_current_electricity(payload_json)
-    return {"value": float(val)}
 
-def build_service_handler():
-    method = RpcMethodHandler.unary(
-        method=rpc_query,
-        method_name="query_current_electricity",
-        request_deserializer=_req_deser,
-        response_serializer=_resp_ser,
-    )
-    return RpcServiceHandler(
-        service_name=SERVICE_NAME,
-        method_handlers=[method],
-    )
+def serve(host: str = "0.0.0.0", port: int = 50051):
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=8))
+    dianfei_pb2_grpc.add_DianFeiServiceServicer_to_server(DianFeiServiceImpl(), server)
+    server.add_insecure_port(f"{host}:{port}")
+    print(f"[gRPC] DianFeiService listening on {host}:{port}")
+    server.start()
+    server.wait_for_termination()
 
 if __name__ == "__main__":
-    service_handler = build_service_handler()
-    service_config = ServiceConfig(
-        service_handler=service_handler,
-        host=HOST,
-        port=PORT,          # triple/tri 协议默认
-        protocol="tri"  # 显式指定为 Triple 协议
-    )
-    server = dubbo.Server(service_config).start()
-    url = f"{service_config.protocol}://{service_config.host}:{service_config.port}/{SERVICE_NAME}"
-    input(url)
+    serve()

@@ -1,0 +1,20 @@
+syntax = "proto3";
+package dianfei;
+
+// 注意：service 名、方法名大小写要与 Java 接口保持一致
+service DianFeiService {
+  rpc QueryCurrentElectricity (QueryRequest) returns (QueryReply);
+}
+
+message QueryRequest {
+  string campus    = 1;
+  string building  = 2;
+  string room      = 3;
+  string feeitemid = 4;
+  string type      = 5;
+  string level     = 6;
+}
+
+message QueryReply {
+  double value = 1; // 返回电量
+}
