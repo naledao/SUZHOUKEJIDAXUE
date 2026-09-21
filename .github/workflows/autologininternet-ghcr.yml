@@ -46,3 +46,21 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy-to-k8s:
+    needs: build-and-push
+    runs-on: [self-hosted, k8s, ubuntu]
+
+    steps:
+      - name: Update Kubernetes image
+        run: |
+          kubectl set image \
+            deployment/autologininternet \
+            autologininternet=${REGISTRY}/${IMAGE_NAME}:${GITHUB_SHA} \
+            -n campus-services
+
+      - name: Check deployment
+        run: |
+          kubectl get deployment autologininternet \
+            -n campus-services \
+            -o wide
